@@ -1,0 +1,62 @@
+---
+title: "Andy's R Best Practices"
+author: "Andy Kleinhesselink"
+date: "1/16/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Purpose
+
+I use R for data processing, making figures, doing analysis, sharing work, and writing manuscripts. I have struggled with each of these because I often am unsure of the best way to proceed. This is a collection of my notes and observations about how to work with R.  Mostly for my own benefit.  
+
+### Use Rstudio projects
+  + Use projects for data analysis and writing manuscripts 
+  + Use packages for data preparation creating shareable data sets
+  
+### Version control
+  + Commit work to a git repository as soon as you start
+  + Commit thematic chunks
+  + [Use good commit messages](https://chris.beams.io/posts/git-commit/)
+
+### Use consistent style. 
+  + [Follow Hadley Wickham's style guide](http://adv-r.had.co.nz/Style.html)
+  + use lower case for names of files, functions and variables
+  + separate words in names of files, functions and variables with "_". 
+  + call analysis dataframes "dat" (**provisional**)
+    + I commonly have scripts that pipe a dataframe through a variety of data preparation steps. Call this dataframe "dat".  
+  
+###  Process data using the tidyverse
+  + Do as much of the R data processing as possible using data pipes and functions in the tidyverse.  If a data processing step appears to require going outside of the tidyverse then check online for a new package by Hadley. 
+
+###  Generate figures with ggplot2
+  + Do as much figure generation as possible in ggplot.  This works well with the tidyverse and ultimately is the most flexible approach. 
+  + Save figures with ggsave to png files
+  + Save figures to figures folder 
+
+###  Use consistent folders for project organization
+  + "data" folder
+  + "R" folder for all analysis and figure generation scripts 
+  + "figures" folder 
+  + "doc" folder for manuscript 
+
+###  Don't repeat yourself
+  + look for repeated steps in scripts
+  + Re-factor these into defined functions
+
+###  Limit side-effects 
+  + Try to have scripts produce only one kind of thing
+    + scripts should clean data or generate figures, not both
+  + avoid generating a bunch of intermediate data files 
+    + run data preparation through functions and tidyverse data pipes instead. 
+  
+###  Write manuscripts using Rstudio
+  + Use Rmd to write manuscripts 
+  + can be converted to latex for journal submission
+
+###  Prepare and distribute data in a data package (**provisional**)
+  + After struggling with this for a long time I think that Rstudio packages are the best way to structure data preparation and data sharing. As a source package these share both the raw data and the data preparation scripts.  As an installed package these only give access to prepared data. This simplifies things and makes it easier to share data between projects. 
+  + [How to do this](http://r-pkgs.had.co.nz/data.html)
