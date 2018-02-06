@@ -20,12 +20,13 @@ I use R for data processing, making figures, doing analysis, sharing work, and w
 ### Version control
   + Commit work to a git repository as soon as you start
   + Commit thematic chunks
+  + Use git commit --ammend: when a small change is required to a recent commit, ammend the commit rather than adding a new commit.  This makes the commits more thematic.  
   + [Use good commit messages](https://chris.beams.io/posts/git-commit/)
-
+  
 ### Use consistent style. 
   + [Follow Hadley Wickham's style guide](http://adv-r.had.co.nz/Style.html)
   + use lower case for names of files, functions and variables
-  + separate words in names of files, functions and variables with "_". 
+  + separate words in names of files, functions and variables with an underscore "_". 
   + call analysis dataframes "dat" (**provisional**)
     + I commonly have scripts that pipe a dataframe through a variety of data preparation steps. Call this dataframe "dat".  
   
@@ -45,13 +46,14 @@ I use R for data processing, making figures, doing analysis, sharing work, and w
 
 ###  Don't repeat yourself
   + look for repeated steps in scripts
-  + Re-factor these into defined functions
+  + wite these as defined functions
 
 ###  Limit side-effects 
   + Try to have scripts produce only one kind of thing
     + scripts should clean data or generate figures, not both
   + avoid generating a bunch of intermediate data files 
     + run data preparation through functions and tidyverse data pipes instead. 
+  + put names of input and output files at the top of the script. This makes it way easier to track down which script creates which file.
   
 ###  Write manuscripts using Rstudio
   + Use Rmd to write manuscripts 
